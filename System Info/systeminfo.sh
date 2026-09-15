@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 
-echo "=================================="
-echo "        System Information        "
-echo "=================================="
+GREEN='\033[0;32m'
+CYAN='\033[0;36m'
+YELLOW='\033[0;33m'
+RESET='\033[0m'
+
+echo -e "${CYAN}==================================${RESET}"
+echo -e "${GREEN}        System Information${RESET}"
+echo -e "${CYAN}==================================${RESET}"
 echo
 
 hostname=$(hostname)
@@ -14,14 +19,14 @@ disk=$(df -h | awk ' /C:\\/  { print $5}')
 uptime=$(uptime -p | awk '{sub(/^up /, ""); print $0}')
 ip=$(hostname -I)
 
-printf "%-12s: %s\n" "Host" "$hostname"
-printf "%-12s: %s\n" "OS" "$os"
-printf "%-12s: %s\n" "Kernal" "$kernal"
-printf "%-12s: %s\n" "CPU Usage" "$cpu"
-printf "%-12s: %s\n" "Memory Usage" "$cpu"
-printf "%-12s: %s\n" "Disk Usage" "$disk"
-printf "%-12s: %s\n" "Uptime" "$uptime"
-printf "%-12s: %s\n" "IP Address" "$ip"
+printf "${YELLOW}%-12s${RESET}: ${WHITE}%s${RESET}\n" "Host" "$hostname"
+printf "${YELLOW}%-12s${RESET}: ${WHITE}%s${RESET}\n" "OS" "$os"
+printf "${YELLOW}%-12s${RESET}: ${WHITE}%s${RESET}\n" "Kernel" "$kernal"
+printf "${YELLOW}%-12s${RESET}: ${WHITE}%s%%${RESET}\n" "CPU Usage" "$cpu"
+printf "${YELLOW}%-12s${RESET}: ${WHITE}%s%%${RESET}\n" "Memory Usage" "$mem"
+printf "${YELLOW}%-12s${RESET}: ${WHITE}%s${RESET}\n" "Disk Usage" "$disk"
+printf "${YELLOW}%-12s${RESET}: ${WHITE}%s${RESET}\n" "Uptime" "$uptime"
+printf "${YELLOW}%-12s${RESET}: ${WHITE}%s${RESET}\n" "IP Address" "$ip"
 
 echo
-echo "=================================="
+echo -e "${CYAN}==================================${RESET}"
