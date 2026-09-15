@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-echo "====System Information===="
+echo "=================================="
+echo "        System Information        "
+echo "=================================="
+echo
 
 hostname=$(hostname)
 os=$(uname)
@@ -11,11 +14,14 @@ disk=$(df -h | awk ' /C:\\/  { print $5}')
 uptime=$(uptime -p | awk '{sub(/^up /, ""); print $0}')
 ip=$(hostname -I)
 
-echo "host $hostname"
-echo "os $os"
-echo "kernal $kernal"
-echo "Cpu Usage $cpu"
-echo "Memory Usage $mem"
-echo "Disk Usage $disk"
-echo "Uptime $uptime"
-echo "IP Adress $ip"
+printf "%-12s: %s\n" "Host" "$hostname"
+printf "%-12s: %s\n" "OS" "$os"
+printf "%-12s: %s\n" "Kernal" "$kernal"
+printf "%-12s: %s\n" "CPU Usage" "$cpu"
+printf "%-12s: %s\n" "Memory Usage" "$cpu"
+printf "%-12s: %s\n" "Disk Usage" "$disk"
+printf "%-12s: %s\n" "Uptime" "$uptime"
+printf "%-12s: %s\n" "IP Address" "$ip"
+
+echo
+echo "=================================="
